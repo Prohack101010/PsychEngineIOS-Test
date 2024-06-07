@@ -19,8 +19,23 @@ jobs:
       - name: Install Libraries
         run: |
           haxelib setup ~/haxelib
-          haxelib install hmm --quiet
-          haxelib run hmm install --quiet
+          haxelib install hxcpp > /dev/null
+          haxelib install lime 7.9.0
+          haxelib install openfl 9.1.0
+          haxelib --never install flixel 4.11.0
+          haxelib run lime setup flixel
+          haxelib run lime setup
+          haxelib install flixel-tools
+          haxelib install flixel-ui
+          haxelib install flixel-addons
+          haxelib install tjson
+          haxelib install hxjsonast
+          haxelib git linc_luajit https://github.com/AndreiRudenko/linc_luajit
+          haxelib install hscript
+          haxelib git hscript-ex https://github.com/ianharrigan/hscript-ex
+          haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
+          haxelib install hxcpp-debug-server
+          haxelib list
 
       - name: Compile
         run: haxelib run lime build ios
