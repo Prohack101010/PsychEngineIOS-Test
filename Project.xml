@@ -187,5 +187,6 @@
     
     <!-- Fixes Metal issue on XCode 12 and above (?)-->
     <dependency name="Metal.framework" if="ios" />
+    <preference name="deployment-target" value="12.0" />
     
 </project>
